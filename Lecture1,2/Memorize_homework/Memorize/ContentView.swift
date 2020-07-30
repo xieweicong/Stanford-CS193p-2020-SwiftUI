@@ -30,16 +30,20 @@ struct CardView: View {
     var card: MemoryGame<String>.Card
     
     var body: some View {
-        ZStack {
-            if card.isFaceUp {
-                RoundedRectangle(cornerRadius: 10.0).fill(Color.white).frame(height: )
-                RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3).frame(height: 80)
-                Text(card.content)
-            } else {
-                RoundedRectangle(cornerRadius: 10.0).fill().frame(height: 60)
+        GeometryReader { geometry in
+            ZStack {
+                if self.card.isFaceUp {
+                    RoundedRectangle(cornerRadius: 10.0).fill(Color.white).frame(height: geometry.size.width*4/3)
+                    RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3).frame(height: geometry.size.width*4/3)
+                    Text(self.card.content)
+                } else {
+                    RoundedRectangle(cornerRadius: 10.0).fill().frame(height: 60)
+                }
             }
         }
     }
+
+    
 }
 
 
