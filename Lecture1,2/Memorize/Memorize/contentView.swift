@@ -14,7 +14,8 @@ struct contentView: View {
     var body: some View {
         HStack {
             ForEach(viewModel.cards) { card in
-                CardView(card: card).onTapGesture {
+                CardView(card: card)
+                    .onTapGesture {
                     self.viewModel.choose(card: card)
                 }
             }
