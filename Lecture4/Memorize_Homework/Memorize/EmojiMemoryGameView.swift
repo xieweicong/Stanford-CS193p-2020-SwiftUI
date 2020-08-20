@@ -68,14 +68,16 @@ struct CardView: View {
 
 struct ButtonView: View {
     var body: some View {
+
         GeometryReader { geometry in
             ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .frame(width: geometry.size.width, height: geometry.size.width * 0.2, alignment: .center)
+                .frame(width: geometry.size.width, height: geometry.size.width * 0.2)
             Text("New Game")
                 .font(Font.system(size: geometry.size.width * 0.15))
             .foregroundColor(Color.white)
             }
+            .frame(alignment: .leading)
 
         }
     }
